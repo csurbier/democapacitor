@@ -52,7 +52,7 @@ extension DemoCapacitor : ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
        // error.localizedDescription
          print("Error - \(error.localizedDescription)")
-       // self.bridge.triggerWindowJSEvent(eventName: "didCompleteWithError", data: error.localizedDescription)
+        self.bridge.triggerWindowJSEvent(eventName: "didCompleteWithError", data: error.localizedDescription)
         signInCall?.error(error.localizedDescription)
     }
     
@@ -76,6 +76,7 @@ extension DemoCapacitor : ASAuthorizationControllerDelegate {
                 "realUserStatus": appleIDCredential.realUserStatus.rawValue,
                 "identityTokenString": self.identityTokenString as Any
             ];
+            self.bridge.triggerDocumentJSEvent(eventName: "didCompleteWithAuthorization", data: appleIDCredential.user)
             signInCall?.success(infoData);
           
             
@@ -87,6 +88,8 @@ extension DemoCapacitor : ASAuthorizationControllerDelegate {
                            "username": username,
                            "password": password
             ];
+            self.bridge.triggerDocumentJSEvent(eventName: "didCompleteWithAuthorization", data: username)
+                    
             signInCall?.success(infoData);
             
         }
