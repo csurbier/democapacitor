@@ -10,8 +10,13 @@ export class DemoCapacitorWeb extends WebPlugin implements DemoCapacitorPlugin {
   }
 
   async echo(options: { value: string }): Promise<{value: string}> {
-    console.log('ECHO', options);
+    console.log('ECHO WEB CS', options);
     return options;
+  }
+
+  async showAppleLogin(): Promise<any> {
+    console.log('ECHO WEB showAppleLogin');
+    return;
   }
 }
 

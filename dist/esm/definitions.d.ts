@@ -9,4 +9,5 @@ export interface DemoCapacitorPlugin {
     }): Promise<{
         value: string;
     }>;
+    showAppleLogin(): Promise<any>;
 }

@@ -17,8 +17,14 @@ export class DemoCapacitorWeb extends WebPlugin {
     }
     echo(options) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log('ECHO', options);
+            console.log('ECHO WEB CS', options);
             return options;
+        });
+    }
+    showAppleLogin() {
+        return __awaiter(this, void 0, void 0, function* () {
+            console.log('ECHO WEB showAppleLogin');
+            return;
         });
     }
 }
